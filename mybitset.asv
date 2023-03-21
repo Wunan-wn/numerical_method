@@ -7,13 +7,15 @@ function [c,err,yc]=mybitset(f,a,b,delta)
     % - err is the error estimate for c
     ya=feval(f,a);
     yb=feval(f,b);
+    answer = [];
+    result = [];
     while( b-a > delta)
         if ya*yb > 0
             break;
         end
         c=(a+b)/2;
+        fprintf("c is %.10f\n  yc is %.10f\n",c,);
         yc=feval(f,c); 
-        fprintf("c: %.12f\n",c);
         if yc==0
             a=c;
             b=c;

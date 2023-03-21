@@ -11,6 +11,7 @@ function [p0,err,k,y]=newton(f,df,p0,delta,epsilon,max1)
 % -y is the function value f(p0)
 for k=1:max1
     p1=p0-feval(f,p0)/feval(df,p0);
+    fprintf("%d iteration : answer is %.10f\n",k, p0);
     err=abs(p1-p0);
     relerr=2*err/(abs(p1)+delta);
     p0=p1;
